@@ -33,14 +33,12 @@ public class ParkingController {
         return ResponseEntity.ok(result);
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     @Operation(description = "Find a parking by id")
     public ResponseEntity<ParkingDTO> findById(@PathVariable String id){
         Parking parking = parkingService.findById(id);
+
         ParkingDTO result = parkingMapper.toParkingDTO(parking);
-        if(result == null){
-            return ResponseEntity.notFound().build();
-        }
         return ResponseEntity.ok(result);
     }
 
@@ -53,5 +51,33 @@ public class ParkingController {
 
         return ResponseEntity.status(HttpStatus.CREATED).body(result);
     }
+
+    @PostMapping("/{id}")
+    public ResponseEntity<ParkingDTO> exit(@PathVariable String id){
+        Parking parking = parkingService.exit(id);
+        return ResponseEntity.ok(parkingMapper.toParkingDTO(parking));
+    }
+
+
+
+    @PutMapping("/{id}")
+    @Operation(description = "Update a parking")
+    public ResponseEntity<ParkingDTO> update(@PathVariable String id, @RequestBody ParkingCreateDTO dto){
+        var parkingCreate = parkingMapper.toParking(dto);
+        var parking = parkingService.update(id, parkingCreate);
+        var result = parkingMapper.toParkingDTO(parking);
+
+        return ResponseEntity.ok().body(result);
+    }
+
+    @DeleteMapping("/{id}")
+    @Operation(description = "Delete a parking by id")
+    public ResponseEntity deleteById(@PathVariable String id){
+        parkingService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+
+
+
 
 }
