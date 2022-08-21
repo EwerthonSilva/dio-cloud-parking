@@ -19,13 +19,13 @@ public class ParkingCheckoutService {
 
     private static Double getBill(LocalDateTime entryDate, LocalDateTime exitDate) {
         long minutes = entryDate.until(exitDate, ChronoUnit.MINUTES);
-        Double bill = ONE_HOUR_VALUE;
+        Double bill = 0.0;
 
         if(minutes <= ONE_HOUR){
-            return bill;
+            return ONE_HOUR_VALUE;
         }
-
-        if(minutes <= TWENTY_FOUR_HOUR){
+        if (minutes <= TWENTY_FOUR_HOUR) {
+            bill = ONE_HOUR_VALUE;
             int hours = (int) (minutes/ ONE_HOUR);
             for (int i = 0; i < hours; i++){
                 bill += ADDITIONAL_PER_HOUR_VALUE;

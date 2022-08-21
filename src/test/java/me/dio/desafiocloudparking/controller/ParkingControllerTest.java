@@ -1,7 +1,5 @@
 package me.dio.desafiocloudparking.controller;
 
-import io.restassured.RestAssured;
-import me.dio.desafiocloudparking.controller.dto.ParkingCreateDTO;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -10,10 +8,11 @@ import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 
-import static org.junit.jupiter.api.Assertions.*;
+import io.restassured.RestAssured;
+import me.dio.desafiocloudparking.controller.dto.ParkingCreateDTO;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class ParkingControllerTest {
+class ParkingControllerTest extends AbstractContainerBase {
 
     @LocalServerPort
     private int randomPort;

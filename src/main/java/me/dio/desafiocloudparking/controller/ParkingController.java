@@ -51,12 +51,11 @@ public class ParkingController {
         return ResponseEntity.status(HttpStatus.CREATED).body(result);
     }
 
-    @PostMapping("/{id}")
+    @PostMapping("/{id}/checkout")
     public ResponseEntity<ParkingDTO> checkout(@PathVariable String id){
         Parking parking = parkingService.checkout(id);
         return ResponseEntity.ok(parkingMapper.toParkingDTO(parking));
     }
-
 
 
     @PutMapping("/{id}")
@@ -75,8 +74,4 @@ public class ParkingController {
         parkingService.delete(id);
         return ResponseEntity.noContent().build();
     }
-
-
-
-
 }
