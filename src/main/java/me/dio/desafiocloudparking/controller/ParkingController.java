@@ -1,6 +1,5 @@
 package me.dio.desafiocloudparking.controller;
 
-import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.Operation;
 import me.dio.desafiocloudparking.controller.dto.ParkingCreateDTO;
 import me.dio.desafiocloudparking.controller.dto.ParkingDTO;
@@ -53,8 +52,8 @@ public class ParkingController {
     }
 
     @PostMapping("/{id}")
-    public ResponseEntity<ParkingDTO> exit(@PathVariable String id){
-        Parking parking = parkingService.exit(id);
+    public ResponseEntity<ParkingDTO> checkout(@PathVariable String id){
+        Parking parking = parkingService.checkout(id);
         return ResponseEntity.ok(parkingMapper.toParkingDTO(parking));
     }
 

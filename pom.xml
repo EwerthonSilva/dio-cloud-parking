@@ -15,6 +15,8 @@
 	<description>Desafio DIO de cloud</description>
 	<properties>
 		<java.version>11</java.version>
+		<modelmapper.version>3.1.0</modelmapper.version>
+		<springdoc.openapi.version>1.6.9</springdoc.openapi.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -22,15 +24,30 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>org.modelmapper</groupId>
 			<artifactId>modelmapper</artifactId>
-			<version>3.1.0</version>
+			<version>${modelmapper.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-ui</artifactId>
-			<version>1.6.9</version>
+			<version>${springdoc.openapi.version}</version>
 		</dependency>
+
+
+
 		<dependency>
 			<groupId>io.rest-assured</groupId>
 			<artifactId>rest-assured</artifactId>
@@ -41,10 +58,7 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-		</dependency>
+
 	</dependencies>
 
 	<build>
