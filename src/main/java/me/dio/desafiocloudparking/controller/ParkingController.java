@@ -1,6 +1,7 @@
 package me.dio.desafiocloudparking.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import me.dio.desafiocloudparking.controller.dto.ParkingCreateDTO;
 import me.dio.desafiocloudparking.controller.dto.ParkingDTO;
 import me.dio.desafiocloudparking.controller.mapper.ParkingMapper;
@@ -14,6 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/parking")
+@SecurityRequirement(name = "parkingapi")
 public class ParkingController {
 
     private final ParkingService parkingService;
